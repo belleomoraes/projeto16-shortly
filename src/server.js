@@ -1,12 +1,14 @@
 import express from "express";
 import cors from "cors";
 import signUpRouter from "./routers/signup.router.js";
+import signInRouter from  "./routers/signin.router.js";
 
 const server = express();
 
 server.use(cors());
 server.use(express.json());
 server.use(signUpRouter);
+server.use(signInRouter);
 
 const port = process.env.PORT || 4000;
 

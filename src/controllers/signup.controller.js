@@ -10,8 +10,6 @@ async function signUp(req, res) {
       email,
       passwordHash,
     ]);
-
-    console.log(passwordHash)
     res.sendStatus(201);
   } catch (error) {
     res.status(500).send({ message: error.message });

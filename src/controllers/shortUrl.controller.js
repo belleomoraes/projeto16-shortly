@@ -22,4 +22,18 @@ async function shortenUrl(req, res) {
   }
 }
 
-export default shortenUrl;
+async function showFilteredUrl(req, res) {
+  const { id } = req.params;
+
+  try {
+    const selectedUrl = await connection.query(
+      'SELECT id, "shortUrl", url  FROM urls WHERE id = $1',
+      [id]
+    );
+    res.status(200).send(selectedUrl.rows);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+}
+
+export { shortenUrl, showFilteredUrl };

@@ -11,7 +11,6 @@ async function checkAuthorization(req, res, next) {
   if (selectedSession.rows.length === 0 || !token) {
     return res.sendStatus(401);
   }
-
   next();
 }
 

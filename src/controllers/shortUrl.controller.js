@@ -54,4 +54,17 @@ async function openUrl(req, res) {
   }
 }
 
-export { createShortUrl, showFilteredUrl, openUrl };
+async function deleteUrl (req, res) {
+  const { id } = req.params;
+  try {
+    await connection.query(
+      'DELETE FROM urls WHERE id = $1',
+      [id]
+    );
+    res.sendStatus(204);
+  } catch (error) {
+    res.status(500).send({ message: error.message });
+  }
+}
+
+export { createShortUrl, showFilteredUrl, openUrl, deleteUrl };

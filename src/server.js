@@ -4,6 +4,7 @@ import signUpRouter from "./routers/signup.router.js";
 import signInRouter from "./routers/signin.router.js";
 import urlRouter from "./routers/url.router.js";
 import userRouter from "./routers/user.router.js";
+import rankingRouter from "./routers/ranking.router.js";
 
 const server = express();
 
@@ -13,6 +14,7 @@ server.use(signUpRouter);
 server.use(signInRouter);
 server.use(urlRouter);
 server.use(userRouter);
+server.use(rankingRouter);
 
 const port = process.env.PORT || 4000;
 

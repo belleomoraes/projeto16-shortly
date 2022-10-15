@@ -1,6 +1,6 @@
 import express from "express";
 import checkAuthorization from "../middlewares/urls/checkAuthorization.middleware.js";
-import { createShortUrl, showFilteredUrl, openUrl, deleteUrl } from "../controllers/shortUrl.controller.js";
+import { createShortUrl, showFilteredUrl, openUrl, deleteUrl } from "../controllers/url.controller.js";
 import validateUrlSchema from "../middlewares/urls/urlValidationSchema.middleware.js";
 import isUrlExists from "../middlewares/urls/urlIdExistance.middleware.js";
 import isShortUrlExists from "../middlewares/urls/shortUrlExistance.middleware.js";

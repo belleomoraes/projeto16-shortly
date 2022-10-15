@@ -42,25 +42,22 @@ async function openUrl(req, res) {
   ]);
 
   const increasedVisitCount = Number(selectedUrl.rows[0].visitCount) + 1;
-  const idUrl = selectedUrl.rows[0].id
+  const idUrl = selectedUrl.rows[0].id;
   try {
     await connection.query('UPDATE urls SET "visitCount" = $1 WHERE "shortUrl" = $2', [
       increasedVisitCount,
       shortUrl,
     ]);
-    res.redirect(`/urls/${idUrl}`)
+    res.redirect(`/urls/${idUrl}`);
   } catch (error) {
     res.status(500).send({ message: error.message });
   }
 }
 
-async function deleteUrl (req, res) {
+async function deleteUrl(req, res) {
   const { id } = req.params;
   try {
-    await connection.query(
-      'DELETE FROM urls WHERE id = $1',
-      [id]
-    );
+    await connection.query("DELETE FROM urls WHERE id = $1", [id]);
     res.sendStatus(204);
   } catch (error) {
     res.status(500).send({ message: error.message });
